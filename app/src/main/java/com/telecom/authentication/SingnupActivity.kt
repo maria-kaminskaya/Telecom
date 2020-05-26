@@ -44,7 +44,7 @@ class SingnupActivity : AppCompatActivity() {
         firebaseAuth.removeAuthStateListener(firebaseAuthListener)
     }
 
-//    fun onSignup(v: View) {
+    fun onSignup(v: View) {
 //        if (!emailET.text.toString().isNullOrEmpty() && !passwordET.text.toString().isNullOrEmpty()) {
 //            firebaseAuth.createUserWithEmailAndPassword(emailET.text.toString(), passwordET.text.toString())
 //                .addOnCompleteListener { task ->
@@ -61,7 +61,7 @@ class SingnupActivity : AppCompatActivity() {
 //            val user = FirebaseUser()
 //            firebaseAuth.updateCurrentUser(user)
 //        }
-//    }
+    }
 
 
 }

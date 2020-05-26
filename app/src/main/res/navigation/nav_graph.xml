@@ -10,9 +10,32 @@
         <action
             android:id="@+id/action_mainFragment_to_servicesListFragment"
             app:destination="@id/servicesListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_serviceDetailFragmentP"
+            app:destination="@id/serviceDetailFragmentP" />
     </fragment>
     <fragment
         android:id="@+id/servicesListFragment"
         android:name="com.telecom.ui.ServicesListFragment"
-        android:label="ServicesListFragment" />
+        android:label="ServicesListFragment" >
+        <action
+            android:id="@+id/action_servicesListFragment_to_serviceDetailFragment"
+            app:destination="@id/serviceDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceDetailFragmentP"
+        android:name="com.telecom.ui.ServiceDetailFragmentP"
+        android:label="ServiceDetailFragmentP" >
+        <argument
+            android:name="selectedServices"
+            app:argType="com.telecom.authentication.Service" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceDetailFragment"
+        android:name="com.telecom.ui.ServiceDetailFragment"
+        android:label="ServiceDetailFragment" >
+        <argument
+            android:name="selectedServiceAll"
+            app:argType="com.telecom.authentication.Service" />
+    </fragment>
 </navigation>

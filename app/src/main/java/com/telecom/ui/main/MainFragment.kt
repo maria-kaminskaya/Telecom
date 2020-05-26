@@ -17,10 +17,11 @@ import com.telecom.ui.adapters.AdapterServiceP
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
-
 class MainFragment : Fragment() {
 
     lateinit var listS: ListView
+    val nav = this
+    lateinit var adapter: AdapterServiceP
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -63,7 +64,6 @@ class MainFragment : Fragment() {
     var listServices = ArrayList<Service>()
 
     var list = ArrayList<Service>()
-//    var listS = mutableListOf<String>()
 
     private fun populateInfo(){
         //CLIENTS
@@ -89,27 +89,6 @@ class MainFragment : Fragment() {
                 Log.d("Populate User", "Populate cancelled")
             }
         })
-
-
-//        contractDatabase.addListenerForSingleValueEvent(object: ValueEventListener {
-//            override fun onCancelled(p0: DatabaseError) {
-//                Log.d("Populate User", "Populate cancelled")
-//            }
-//
-//            override fun onDataChange(p0: DataSnapshot) {
-//                Log.d("onDataChange", "Contract")
-//                Log.d("populateInfo", "populateInfo $contractDatabase")
-//                if(isAdded) {
-//                    val contract = p0.getValue(Contract::class.java)
-//                    Log.d("Contract", "Contract $contract")
-////                    num.setText(contract?.idc, TextView.BufferType.EDITABLE)
-//                    Log.d("Contract", "onDataChange ${contract?.idc}")
-//                    progressLayout.visibility = View.GONE
-//                }
-//            }
-//    })
-
-//        val cDatabase = FirebaseDatabase.getInstance().reference.child(DATA_CONTRACTS)
 
         //CONTRACTS
         val query: Query = contractDatabase.orderByKey()
@@ -139,10 +118,12 @@ class MainFragment : Fragment() {
         }
         )
 
+//        listServices.clear()
+
         //SERVICE
         serviceDatabase.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
             override fun onDataChange(p0: DataSnapshot) {
                 val snapshotIterator = p0.children
@@ -154,9 +135,8 @@ class MainFragment : Fragment() {
                     Log.d("SERVICE", "Value = " + next.child("sid").value);
                     Log.d("SERVICE", "${iterator}");
 //                    listS.addAll(listOf(next.child("sid").value as String))
-                    // not idClient - idService
-                    Log.d("SERVICE", "$listS");
-
+//                    // not idClient - idService
+//                    Log.d("SERVICE", "$listS");
                     listIdService.forEach{
                         if(it == next.child("sid").value){
                             val service = p0.getValue(Service::class.java)
@@ -176,52 +156,36 @@ class MainFragment : Fragment() {
 //
                             )
                             Log.d("LIST_SERVICES", "${listServices}");
+
                         }
                     }
-                    val adapter = AdapterServiceP(context, listServices)
+
+                    adapter = AdapterServiceP(context, listServices)
                     listS.adapter = adapter
-//                    if(listIdService == next.child("sid").value){
-////                        val contract = p0.getValue(Contract::class.java)
-////                        num.setText("${next.child("idc").value}", TextView.BufferType.NORMAL)
-//                        val service = p0.getValue(Service::class.java)
-//                        Log.d("SERVICE", "${service}");
-//
-////                        nameS.setText("${next.child("serviceName").value}", TextView.BufferType.NORMAL)
-////                        tr.setText("${next.child("internet").value}", TextView.BufferType.NORMAL)
-////                        sp.setText("${next.child("speed").value}", TextView.BufferType.NORMAL)
-////                        tv.setText("${next.child("tv").value}", TextView.BufferType.NORMAL)
-//
-//                        Log.d("SERVICE", "${next.child("serviceName").value}");
-//                        Log.d("SERVICE", "${service?.serviceName}");
-//
-////                        listServices.value = mapOf(
-////                            "serviceName" to "${service?.serviceName}",
-////                            "sid" to "${ next.child("serviceName").value}",
-////                            "channels" to "${ next.child("serviceName").value}",
-////                            "console" to "${ next.child("serviceName").value}",
-////                            "cost" to "${ next.child("serviceName").value}",
-////                            "internet" to "${ next.child("serviceName").value}",
-////                            "modem" to "${ next.child("serviceName").value}",
-////                            "speed" to "${ next.child("serviceName").value}",
-////                            "tv" to "${ next.child("serviceName").value}"
-////                        )
-////                        Log.d("LIST_SERVICES", "${listServices}");
-//
-////                    }
-//                    else
-//                        Log.d("LIST_SERVICES", "NOT");
+
+
+
+                    listS.setOnItemClickListener { parent, view, position, id ->
+                        nav.findNavController().navigate(MainFragmentDirections.actionMainFragmentToServiceDetailFragmentP(listServices[position]))
+                    }
+
                 }
+
             }
 
         })
+//        listServices.clear()
+//        Log.d("LIST_SERVICES", "Cleared: ${listServices}");
     }
 
-////    fun onClickButton() {
-//        Log.d("MainFragment", "ServicesListFragment")
-//        val intent = Intent(activity, ServicesListFragment::class.java)
-//        startActivity(intent)
-//
-//    }
+    override fun onPause() {
+        super.onPause()
+        listServices.clear()
+        listIdService.clear()
+        listS.adapter=null
+        adapter.notifyDataSetChanged()
+    }
+
 
 }
 

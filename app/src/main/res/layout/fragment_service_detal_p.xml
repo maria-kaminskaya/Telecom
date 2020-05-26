@@ -1,11 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            type="com.telecom.ui.ServiceDetailFragmentP"
+            name="fragment" />
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/namedp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NAME"
@@ -15,119 +26,125 @@
             android:lines="10"
             android:textSize="24sp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Трафик"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Скорость"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Модем"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TV"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Каналы"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Консоль"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
+            android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
-                android:textAlignment="textEnd"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
-                android:textAlignment="textEnd"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
-                android:textAlignment="textEnd"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
-                android:textAlignment="textEnd"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
-                android:textAlignment="textEnd"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
-                android:textAlignment="textEnd"/>
-        </LinearLayout>
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Трафик"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Скорость"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Модем"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TV"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Каналы"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Консоль"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="GB" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="mb/s"
-                tools:ignore="RtlSymmetry" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/trdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
+                    android:textAlignment="textEnd"/>
+                <TextView
+                    android:id="@+id/spdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
+                    android:textAlignment="textEnd"/>
+                <TextView
+                    android:id="@+id/modemdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
+                    android:textAlignment="textEnd"/>
+                <TextView
+                    android:id="@+id/tvdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
+                    android:textAlignment="textEnd"/>
+                <TextView
+                    android:id="@+id/channelsdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
+                    android:textAlignment="textEnd"/>
+                <TextView
+                    android:id="@+id/consoledp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GB" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="mb/s"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -135,6 +152,7 @@
             android:orientation="vertical"
             android:layout_gravity="end">
             <TextView
+                android:id="@+id/costdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="COST"
@@ -144,11 +162,13 @@
                 android:paddingEnd="10dp"
                 android:lines="1"/>
             <Button
-                android:id="@+id/send"
+                android:id="@+id/okl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Отключить"
-                />
+                android:clickable="true"
+                android:focusable="true" />
 
         </LinearLayout>
     </LinearLayout>
+</layout>

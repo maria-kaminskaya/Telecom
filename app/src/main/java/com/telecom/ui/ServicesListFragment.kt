@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -15,11 +16,15 @@ import com.telecom.R
 import com.telecom.authentication.DATA_SERVICES
 import com.telecom.authentication.Service
 import com.telecom.ui.adapters.AdapterService
+import com.telecom.ui.main.MainFragmentDirections
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class ServicesListFragment: Fragment() {
 
     lateinit var listSAll: ListView
+    val nav = this
+
+    lateinit var adapter: AdapterService
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -72,10 +77,22 @@ class ServicesListFragment: Fragment() {
                     progressLayout.visibility = View.GONE
 
                 }
-                val adapter = AdapterService(context, listServices)
+                adapter = AdapterService(context, listServices)
                 listSAll.adapter = adapter
+
+                listSAll.setOnItemClickListener { parent, view, position, id ->
+                    nav.findNavController().navigate(ServicesListFragmentDirections.actionServicesListFragmentToServiceDetailFragment(listServices[position]))
+                }
             }})
 
+    }
+
+    override fun onPause() {
+        super.onPause()
+        listServices.clear()
+        listServices.clear()
+        listSAll.adapter=null
+        adapter.notifyDataSetChanged()
     }
 
 

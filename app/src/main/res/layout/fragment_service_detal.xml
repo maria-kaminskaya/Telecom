@@ -2,12 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/named"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NAME"
@@ -71,36 +73,42 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <TextView
+                    android:id="@+id/trd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     tools:ignore="RtlSymmetry"
                     android:textAlignment="textEnd"/>
                 <TextView
+                    android:id="@+id/spd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     tools:ignore="RtlSymmetry"
                     android:textAlignment="textEnd"/>
                 <TextView
+                    android:id="@+id/modemd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     tools:ignore="RtlSymmetry"
                     android:textAlignment="textEnd"/>
                 <TextView
+                    android:id="@+id/tvd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     tools:ignore="RtlSymmetry"
                     android:textAlignment="textEnd"/>
                 <TextView
+                    android:id="@+id/channelsd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     tools:ignore="RtlSymmetry"
                     android:textAlignment="textEnd"/>
                 <TextView
+                    android:id="@+id/consoled"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
@@ -137,6 +145,7 @@
             android:orientation="vertical"
             android:layout_gravity="end">
             <TextView
+                android:id="@+id/costd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="COST"
@@ -146,7 +155,7 @@
                 android:paddingEnd="10dp"
                 android:lines="1"/>
             <Button
-                android:id="@+id/send"
+                android:id="@+id/podkl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Подключить"
